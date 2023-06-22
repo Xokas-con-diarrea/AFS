@@ -1,0 +1,207 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Abyss Hub AFS Edition", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+--Values
+_G.autoSummer = true
+_G.autoClicker = true
+
+
+--Functions 
+
+function autoSummer()
+    while _G.autoSummer == true do
+        while wait() do
+            game:GetService("ReplicatedStorage").Remote.AttemptMultiOpen:FireServer("SummerEgg")
+            wait(0.00000001)
+         end
+    end
+end
+
+function autoClicker()
+    while _G.autoClicker == true do
+        while wait() do
+            game:GetService("ReplicatedStorage").Remote.ClickerDamage:FireServer()
+            wait(0.00000000001)
+         end
+    end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Tabs
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local OpenTab = Window:MakeTab({
+	Name = "Opening",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local MiscTab = Window:MakeTab({
+	Name = "Dupe / Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+--Button
+
+MiscTab:AddButton({
+	Name = "Ez Dupe",
+	Callback = function()
+        local remote = game:GetService("ReplicatedStorage"):WaitForChild("Remote",100):WaitForChild("SetSettings",100)
+        local args = {
+            [1] = {
+                AutoSell = {
+                    ShinyMythical = false --[[boolean]],
+                    Mythical = false --[[boolean]],
+                    Rare = false --[[boolean]],
+                    Legendary = false --[[boolean]],
+                    ShinyRare = false --[[boolean]],
+                    ShinyEpic = false --[[boolean]],
+                    Epic = false --[[boolean]],
+                    ShinyLegendary = false --[[boolean]],
+                    ShinyCommon = false --[[boolean]],
+                    Common = false --[[boolean]]
+                },
+                CriticalHits = true --[[boolean]],
+                ChatAnnouncements = {
+                    ShinyMythical = true --[[boolean]],
+                    Mythical = true --[[boolean]],
+                    Rare = false --[[boolean]],
+                    Legendary = true --[[boolean]],
+                    ShinyRare = false --[[boolean]],
+                    ShinyEpic = false --[[boolean]],
+                    Epic = false --[[boolean]],
+                    ShinyLegendary = true --[[boolean]],
+                    ShinyCommon = false --[[boolean]],
+                    Common = false --[[boolean]]
+                },
+                Flash = true --[[boolean]],
+                LowQuality = true --[[boolean]],
+                AllPets = false --[[boolean]],
+                Performance = false --[[boolean]],
+                AutoLock = {
+                    ShinyMythical = true --[[boolean]],
+                    Mythical = true --[[boolean]],
+                    Rare = false --[[boolean]],
+                    Legendary = true --[[boolean]],
+                    ShinyRare = false --[[boolean]],
+                    ShinyEpic = false --[[boolean]],
+                    Epic = false --[[boolean]],
+                    ShinyLegendary = true --[[boolean]],
+                    ShinyCommon = false --[[boolean]],
+                    Common = false --[[boolean]]
+                },
+                AutoSellPassives = {workspace},
+                SoundsEnabled = true --[[boolean]],
+                AutoClicker = true --[[boolean]],
+                AutoSprint = false --[[boolean]],
+                OtherFX = false --[[boolean]],
+                TradesEnabled = true --[[boolean]],
+                MusicEnabled = true --[[boolean]],
+                BoostPaused = false --[[boolean]],
+                OwnFX = true --[[boolean]],
+                MagnetPass = true --[[boolean]]
+            }
+        }
+        remote:FireServer(unpack(args))
+        warn("Dupeeeee Readyyyyy!!! Dupeeeee Readyyyyy!!! Dupeeeee Readyyyyy!!!")
+        while task.wait(.1) do
+            remote:FireServer(unpack(args))
+        end
+  	end    
+})
+
+MiscTab:AddButton({
+	Name = "Anti-AFK",
+	Callback = function()
+        wait(0.5)local ba=Instance.new("ScreenGui")
+        local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
+        local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
+        ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
+        ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
+        ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,370,0,52)
+        ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti AFK Script"ca.TextColor3=Color3.new(0,1,1)
+        ca.TextSize=22;da.Parent=ca
+        da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
+        da.Size=UDim2.new(0,370,0,107)_b.Parent=da
+        _b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
+        _b.Size=UDim2.new(0,370,0,21)_b.Font=Enum.Font.Arial;_b.Text="Made By Abyss EZ"
+        _b.TextColor3=Color3.new(0,1,1)_b.TextSize=20;ab.Parent=da
+        ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377,0)
+        ab.Size=UDim2.new(0,370,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Active"
+        ab.TextColor3=Color3.new(0,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
+        game:service'Players'.LocalPlayer.Idled:connect(function()
+        bb:CaptureController()bb:ClickButton2(Vector2.new())
+        ab.Text="Roblox tried to kick u but i kicked him instead"wait(2)ab.Text="Status : Active"end)
+  	end    
+})
+
+MiscTab:AddButton({
+	Name = "Zero Hub GUI",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Discord0000/Zer0Hub/main/MainScript.lua"))()
+  	end    
+})
+
+MiscTab:AddButton({
+	Name = "Dark Dex (Go To Events)",
+	Callback = function()
+        loadstring(game:HttpGet('https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4'))()
+  	end    
+})
+
+
+
+
+
+--Toggle
+
+
+MainTab:AddToggle({
+	Name = "Auto Clicker",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+        _G.autoClicker = Value
+        autoClicker()
+	end    
+})
+
+OpenTab:AddToggle({
+	Name = "Summer Egg",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+        _G.autoSummer = Value
+        autoSummer()
+	end    
+})
+
+
+
+
+OrionLib:Init()
